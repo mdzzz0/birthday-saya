@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A little birthday letter for Saya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Short+Stack&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="site-window">
+
+    <!-- 1. ENVELOPE -->
+    <section class="screen welcome-screen active" id="welcome">
+      <div class="window-bar">
+        <span>✦ Birthday letter for Saya ✦</span>
+        <span>— □ ×</span>
+      </div>
+
+      <div class="welcome-content">
+        <div class="decor-row">✦　🎈　✦　🎂　✦　🎈　✦</div>
+
+        <h1>✦ A little birthday letter for Saya ✦</h1>
+
+        <button class="envelope" id="openLetter" aria-label="Open letter">
+          <span class="envelope-flap"></span>
+          <span class="envelope-heart">♥</span>
+          <span class="envelope-line line-one"></span>
+          <span class="envelope-line line-two"></span>
+          <span class="pixel-bow small-bow" aria-hidden="true">
+            <i class="bow-left"></i>
+            <i class="bow-right"></i>
+            <i class="bow-knot"></i>
+            <i class="bow-tail left-tail"></i>
+            <i class="bow-tail right-tail"></i>
+          </span>
+        </button>
+
+        <p class="click-hint">✦ click to open ✦</p>
+      </div>
+    </section>
+
+    <!-- 2. QUESTION -->
+    <section class="screen question-screen" id="question">
+      <div class="window-bar">
+        <span>✦ BIRTHDAY　·　✦　BIRTHDAY　·　✦</span>
+        <span>— □ ×</span>
+      </div>
+
+      <div class="question-content">
+        <div class="pixel-hearts">✦　🎈　♡　🎂　♡　🎈　✦</div>
+        <h2>Ready for your birthday surprise?</h2>
+
+        <div class="bunny-wrap">
+          <img src="bunny.png" class="pixel-bunny" alt="">
+        </div>
+
+        <div class="buttons-area" id="buttonsArea">
+          <button class="choice yes" id="yesButton">✦ YES ✦</button>
+          <button class="choice no" id="noButton">✦ NO ✦</button>
+        </div>
+
+        <p class="escape-message" id="escapeMessage"></p>
+      </div>
+    </section>
+
+    <!-- 3. LETTER -->
+    <section class="screen letter-screen" id="letter">
+      <div class="window-bar">
+        <span>✦ Birthday letter for Saya ✦</span>
+        <span>— □ ×</span>
+      </div>
+
+      <div class="letter-scene">
+
+        <div class="background-decor" aria-hidden="true">
+          <div class="pixel-cake" aria-hidden="true">
+            <span class="cake-candle candle-1"></span>
+            <span class="cake-candle candle-2"></span>
+            <span class="cake-candle candle-3"></span>
+            <span class="cake-top"></span>
+            <span class="cake-body"></span>
+            <span class="cake-plate"></span>
+          </div>
+          <span class="cloud c1">▰▰　▰</span>
+          <span class="cloud c2">▰　▰▰</span>
+
+          <span class="spark s1">✦</span>
+          <span class="spark s2">✧</span>
+          <span class="spark s3">·</span>
+          <span class="spark s4">✦</span>
+
+          <span class="float-heart h1">♡</span>
+          <span class="float-heart h2">♥</span>
+          <span class="float-heart h3">♡</span>
+          <span class="float-heart h4">♥</span>
+          <span class="float-heart h5">♡</span>
+
+          <div class="tiny-window">
+            <div class="tiny-window-top">♡　·　♡</div>
+            <div class="tiny-window-body">✦　♡<br>♡　✦</div>
+          </div>
+        </div>
+
+        <!--
+          THE BUNNY IS BEHIND THE PAPER.
+          It is positioned to the RIGHT of the sheet.
+          The sheet covers most of the body, leaving the face visible.
+        -->
+        <div class="bunny-right-peek" aria-hidden="true">
+          <img src="bunny.png" class="pixel-bunny" alt="">
+        </div>
+
+        <!-- Paper is above the bunny -->
+        <article class="paper">
+
+          <!-- CSS PIXEL BOW: no emoji -->
+          <div class="pixel-bow paper-bow" aria-hidden="true">
+            <i class="bow-left"></i>
+            <i class="bow-right"></i>
+            <i class="bow-knot"></i>
+            <i class="bow-tail left-tail"></i>
+            <i class="bow-tail right-tail"></i>
+          </div>
+
+          <div class="paper-inner">
+            <div class="paper-top-hearts">✦　🎈　♡　🎂　♡　🎈　✦</div>
+
+            <p class="dear">Dear Saya,</p>
+
+            <div class="letter-text">
+              <p>Мне не очень легко говорить о таких вещах, но мне очень хочется, чтобы ты знал, как сильно я тебя люблю.</p>
+
+              <p>Я правда очень рада, что ты остаёшься рядом со мной, даже несмотря на все трудности, которые иногда возникают из-за меня. Я знаю, что со мной бывает трудно, поэтому особенно ценю твоё терпение и то, что ты всё равно выбираешь быть рядом.</p>
+
+              <p>Мне очень нравится проводить с тобой время. Играть вместе, разговаривать, смотреть что-нибудь… И мне уже трудно представить свой обычный день без всего этого.</p>
+
+              <p>Мне очень нравится твоя любовь ко мне. Иногда мне сложно её принимать и показывать, что я тоже её чувствую, но это совершенно не значит, что она мне не нужна. Наоборот — мне хочется твоей нежности, твоей ласки и твоего внимания. И я надеюсь, что когда-нибудь мне станет легче принимать всю ту любовь, которую ты мне даёшь.</p>
+
+              <p>Поначалу ты мне совсем не нравился. А потом, после общения с тобой, я очень быстро изменила своё мнение. И даже сейчас мне иногда трудно до конца осознать, что мы действительно вместе.</p>
+
+              <p>Спасибо тебе за то, что остаёшься рядом. Спасибо за твоё терпение, любовь и за всё время, которое мы проводим вместе.</p>
+
+              <p class="final-love">Я очень тебя люблю. ♡</p>
+            </div>
+
+            <div class="paper-little-hearts">✦　♡　✦</div>
+          </div>
+
+          <div class="paper-corner">♡</div>
+        </article>
+
+        <div class="bottom-bar" aria-hidden="true">
+          <span>♡</span>
+          <span>· · ·</span>
+          <span>♡</span>
+          <span>· · ·</span>
+          <span>♡</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

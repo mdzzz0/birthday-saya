@@ -1,0 +1,752 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #e5a0b7;
+  --pink-light: #f8d8e3;
+  --pink-bg: #f3c5d4;
+  --pink-dark: #9d506a;
+  --pink-deep: #7d4056;
+  --cream: #fff9ed;
+  --brown: #49373b;
+  --gold: #e8bd70;
+  --gold-light: #ffe6a8;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #fff7ef;
+  color: var(--brown);
+  font-family: "Press Start 2P", monospace;
+}
+
+.site-window {
+  width: min(940px, 95vw);
+  height: min(720px, 91vh);
+  position: relative;
+  overflow: hidden;
+  border: 5px solid var(--pink-dark);
+  background: var(--pink-light);
+  box-shadow: 9px 9px 0 rgba(125,64,86,.13);
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+}
+
+.screen.active {
+  display: block;
+  animation: screenIn .25s steps(3) both;
+}
+
+@keyframes screenIn {
+  from { opacity: 0; transform: translateX(7px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.window-bar {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 17px;
+  color: var(--pink-deep);
+  border-bottom: 4px solid var(--pink-dark);
+  background: #f2bdcf;
+  font-size: clamp(8px, 1.35vw, 14px);
+}
+
+/* ---------------- WELCOME ---------------- */
+
+.welcome-screen {
+  background-color: #fff8ef;
+  background-image:
+    radial-gradient(circle, #d57b96 0 3px, transparent 3.5px);
+  background-size: 100px 92px;
+}
+
+.welcome-content {
+  height: calc(100% - 58px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  text-align: center;
+}
+
+.decor-row {
+  color: var(--pink-dark);
+  font-size: 17px;
+  letter-spacing: 1px;
+  animation: birthdayTwinkle 1.8s steps(2) infinite;
+}
+
+@keyframes birthdayTwinkle {
+  50% { transform: translateY(-2px); opacity: .72; }
+}
+
+.welcome-content h1 {
+  margin: 0;
+  color: var(--pink-deep);
+  line-height: 1.7;
+  font-size: clamp(17px, 2.7vw, 29px);
+}
+
+.envelope {
+  width: 230px;
+  height: 145px;
+  position: relative;
+  border: 6px solid var(--pink-dark);
+  background: #fff9ef;
+  cursor: pointer;
+  box-shadow: 6px 6px 0 rgba(125,64,86,.14);
+}
+
+.envelope-flap {
+  position: absolute;
+  inset: 4px 4px auto;
+  height: 87px;
+  background: #fde7df;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-bottom: 5px solid var(--pink);
+}
+
+.envelope-heart {
+  position: absolute;
+  left: 50%;
+  top: 59px;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: var(--pink-dark);
+  font-size: 29px;
+}
+
+.envelope-line {
+  position: absolute;
+  bottom: 10px;
+  width: 115px;
+  height: 5px;
+  background: #edb7c7;
+}
+
+.line-one {
+  left: 3px;
+  transform: rotate(-31deg);
+  transform-origin: left;
+}
+
+.line-two {
+  right: 3px;
+  transform: rotate(31deg);
+  transform-origin: right;
+}
+
+.click-hint {
+  margin: 3px 0 0;
+  color: var(--pink-deep);
+  font-size: 10px;
+  animation: blink 1.2s steps(2) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: .45; }
+}
+
+/* ---------------- PIXEL BOW ----------------
+   This bow is made entirely from CSS rectangles.
+   No emoji = it stays pixel-looking on every device.
+------------------------------------------------ */
+
+.pixel-bow {
+  position: relative;
+  width: 118px;
+  height: 64px;
+  image-rendering: pixelated;
+  z-index: 8;
+}
+
+.pixel-bow i {
+  position: absolute;
+  display: block;
+  background: #e8a1b7;
+  border: 4px solid var(--pink-dark);
+}
+
+.bow-left {
+  width: 49px;
+  height: 36px;
+  left: 5px;
+  top: 6px;
+  clip-path: polygon(
+    0 18%, 18% 0, 67% 8%, 100% 42%,
+    78% 76%, 31% 72%, 10% 100%, 0 78%
+  );
+}
+
+.bow-right {
+  width: 49px;
+  height: 36px;
+  right: 5px;
+  top: 6px;
+  clip-path: polygon(
+    0 42%, 33% 8%, 82% 0, 100% 18%,
+    90% 100%, 69% 72%, 22% 76%
+  );
+}
+
+.bow-knot {
+  width: 25px;
+  height: 25px;
+  left: 46px;
+  top: 13px;
+  background: #d985a0 !important;
+  z-index: 4;
+}
+
+.bow-tail {
+  width: 25px;
+  height: 34px;
+  top: 31px;
+  z-index: 1;
+  background: #dc91a8 !important;
+}
+
+.left-tail {
+  left: 42px;
+  transform: rotate(23deg);
+  clip-path: polygon(20% 0, 100% 8%, 62% 100%, 0 70%);
+}
+
+.right-tail {
+  right: 42px;
+  transform: rotate(-23deg);
+  clip-path: polygon(0 8%, 80% 0, 100% 70%, 38% 100%);
+}
+
+.small-bow {
+  position: absolute;
+  width: 74px;
+  height: 45px;
+  right: -18px;
+  top: -34px;
+  transform: scale(.7);
+  transform-origin: center;
+}
+
+/* ---------------- QUESTION ---------------- */
+
+.question-screen {
+  background-color: #f8dbe4;
+  background-image:
+    linear-gradient(45deg, rgba(255,255,255,.3) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.3) 75%),
+    linear-gradient(45deg, rgba(255,255,255,.3) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.3) 75%);
+  background-position: 0 0, 12px 12px;
+  background-size: 24px 24px;
+}
+
+.question-content {
+  height: calc(100% - 58px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 27px;
+  position: relative;
+}
+
+.pixel-hearts {
+  color: var(--pink-dark);
+  font-size: clamp(15px, 2.2vw, 24px);
+  margin-bottom: 27px;
+}
+
+.question-content h2 {
+  margin: 0 0 7px;
+  color: var(--brown);
+  font-size: clamp(15px, 2.3vw, 23px);
+}
+
+.bunny-wrap {
+  height: 230px;
+  display: grid;
+  place-items: center;
+  animation: pixelHop 1.25s steps(2, end) infinite;
+}
+
+@keyframes pixelHop {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.pixel-bunny {
+  width: 170px;
+  height: 170px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.buttons-area {
+  width: 100%;
+  height: 70px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+}
+
+.choice {
+  min-width: 125px;
+  height: 53px;
+  border: 4px solid var(--pink-dark);
+  background: #fffaf2;
+  color: var(--pink-dark);
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 rgba(125,64,86,.12);
+  transition: transform .1s steps(1);
+}
+
+.choice:hover {
+  transform: translateY(-3px);
+}
+
+.escape-message {
+  min-height: 20px;
+  margin: 3px 0;
+  color: var(--pink-dark);
+  font-size: 9px;
+}
+
+/* ---------------- LETTER ---------------- */
+
+.letter-screen {
+  background: var(--pink-bg);
+}
+
+.letter-scene {
+  height: calc(100% - 58px);
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px),
+    #f2c5d4;
+  background-size: 24px 24px;
+}
+
+
+.letter-scene::before {
+  content: "🎈　🎈　🎈　🎈　🎈";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 10px;
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 6px;
+  opacity: .82;
+  pointer-events: none;
+}
+
+.letter-scene::after {
+  content: "✦　·　✦　·　✦　·　✦　·　✦";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 45px;
+  text-align: center;
+  color: #c57c93;
+  font-size: 10px;
+  pointer-events: none;
+}
+
+/* Detailed background */
+.background-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  color: #f9e6ec;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.c1 { top: 60px; left: 50px; }
+.c2 { top: 135px; right: 45px; }
+
+.spark {
+  position: absolute;
+  color: #b86c85;
+  font-size: 14px;
+}
+
+.s1 { left: 9%; top: 25%; }
+.s2 { left: 20%; top: 69%; }
+.s3 { right: 9%; top: 44%; }
+.s4 { right: 20%; top: 72%; }
+
+.float-heart {
+  position: absolute;
+  color: #bd7189;
+  font-size: 17px;
+  animation: tinyFloat 2.8s steps(3) infinite;
+}
+
+.h1 { left: 8%; top: 32%; }
+.h2 { left: 20%; top: 17%; animation-delay: .5s; }
+.h3 { right: 8%; top: 28%; animation-delay: .8s; }
+.h4 { right: 15%; bottom: 14%; animation-delay: 1.1s; }
+.h5 { left: 13%; bottom: 12%; animation-delay: 1.5s; }
+
+@keyframes tinyFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.tiny-window {
+  position: absolute;
+  left: 22px;
+  bottom: 28px;
+  width: 105px;
+  height: 100px;
+  border: 4px solid var(--pink-dark);
+  background: #ffe8ef;
+  opacity: .72;
+  box-shadow: 5px 5px 0 rgba(125,64,86,.09);
+}
+
+.tiny-window-top {
+  height: 24px;
+  border-bottom: 4px solid var(--pink-dark);
+  padding: 4px;
+  font-size: 7px;
+}
+
+.tiny-window-body {
+  height: calc(100% - 24px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #c57c93;
+  font-size: 9px;
+  line-height: 2;
+}
+
+/*
+  BUNNY POSITION:
+  The bunny sits BEHIND the sheet and peeks from its RIGHT EDGE.
+  The paper has a higher z-index, so it naturally hides the body.
+*/
+.bunny-right-peek {
+  position: absolute;
+  z-index: 2;
+  width: 190px;
+  height: 300px;
+  left: calc(50% + 250px);
+  top: 150px;
+  overflow: hidden;
+  animation: bunnySidePeek 1.2s steps(2, end) infinite;
+}
+
+.bunny-right-peek .pixel-bunny {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  left: -8px;
+  top: 36px;
+}
+
+@keyframes bunnySidePeek {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+
+/* The actual letter sheet */
+.paper {
+  width: min(590px, 63%);
+  height: 560px;
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -48%) rotate(-.6deg);
+  padding: 76px 55px 48px;
+  background: var(--cream);
+  border: 4px solid var(--pink-dark);
+  box-shadow: 8px 8px 0 rgba(125,64,86,.14);
+}
+
+.paper::before {
+  content: "";
+  position: absolute;
+  inset: 13px;
+  border: 2px dashed #edb0c2;
+  pointer-events: none;
+}
+
+.paper-inner {
+  position: relative;
+  height: 100%;
+  z-index: 2;
+}
+
+.paper-top-hearts {
+  text-align: center;
+  color: #cf8198;
+  font-size: 12px;
+  margin-bottom: 22px;
+  letter-spacing: 1px;
+}
+
+.dear {
+  margin: 0 0 18px;
+  color: var(--pink-deep);
+  font-family: "Short Stack", cursive;
+  font-size: 29px;
+}
+
+.letter-text {
+  height: 338px;
+  overflow-y: auto;
+  padding: 2px 15px 18px 2px;
+  font-family: "Short Stack", cursive;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #5b454a;
+  scrollbar-width: thin;
+  scrollbar-color: #e1a2b6 transparent;
+}
+
+.letter-text::-webkit-scrollbar {
+  width: 7px;
+}
+
+.letter-text::-webkit-scrollbar-thumb {
+  background: #e1a2b6;
+}
+
+.letter-text p {
+  margin: 0 0 15px;
+}
+
+.letter-text .final-love {
+  margin-top: 5px;
+  color: var(--pink-deep);
+  font-size: 17px;
+  text-align: center;
+}
+
+.paper-little-hearts {
+  position: absolute;
+  right: 13px;
+  bottom: 7px;
+  color: var(--pink-dark);
+  font-family: "Short Stack", cursive;
+  font-size: 22px;
+}
+
+.paper-corner {
+  position: absolute;
+  right: 19px;
+  bottom: 13px;
+  color: #d98ca2;
+  font-size: 11px;
+}
+
+/* Pixel bow attached to the TOP of the paper */
+.paper-bow {
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: -33px;
+  transform: translateX(-50%);
+  width: 145px;
+  height: 75px;
+}
+
+.paper-bow .bow-left {
+  width: 60px;
+  height: 43px;
+  left: 7px;
+  top: 7px;
+}
+
+.paper-bow .bow-right {
+  width: 60px;
+  height: 43px;
+  right: 7px;
+  top: 7px;
+}
+
+.paper-bow .bow-knot {
+  width: 29px;
+  height: 29px;
+  left: 58px;
+  top: 14px;
+}
+
+.paper-bow .bow-tail {
+  width: 29px;
+  height: 40px;
+  top: 37px;
+}
+
+.paper-bow .left-tail {
+  left: 51px;
+}
+
+.paper-bow .right-tail {
+  right: 51px;
+}
+
+.bottom-bar {
+  position: absolute;
+  z-index: 1;
+  bottom: 7px;
+  left: 0;
+  right: 0;
+  height: 37px;
+  border-top: 3px solid rgba(157,80,106,.55);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: var(--pink-dark);
+  font-size: 10px;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media (max-width: 700px) {
+  .site-window {
+    width: 96vw;
+    height: 88vh;
+  }
+
+  .window-bar {
+    padding: 0 9px;
+    font-size: 7px;
+  }
+
+  .envelope {
+    width: 195px;
+    height: 123px;
+  }
+
+  .paper {
+    width: 79%;
+    height: 535px;
+    padding: 62px 27px 35px;
+  }
+
+  .dear {
+    font-size: 23px;
+  }
+
+  .letter-text {
+    height: 345px;
+    font-size: 12px;
+    line-height: 1.58;
+    padding-right: 10px;
+  }
+
+  .letter-text .final-love {
+    font-size: 15px;
+  }
+
+  .bunny-right-peek {
+    left: calc(50% + 22vw);
+    top: 180px;
+    width: 145px;
+  }
+
+  .bunny-right-peek .pixel-bunny {
+    width: 145px;
+    height: 145px;
+  }
+
+  .tiny-window {
+    transform: scale(.7);
+    transform-origin: left bottom;
+    left: 5px;
+  }
+}
+
+/* Tiny pixel birthday cake */
+.pixel-cake {
+  position: absolute;
+  right: 30px;
+  bottom: 39px;
+  width: 118px;
+  height: 115px;
+  opacity: .72;
+  image-rendering: pixelated;
+}
+.cake-body {
+  position: absolute;
+  left: 18px;
+  bottom: 23px;
+  width: 82px;
+  height: 48px;
+  background: #fff0e7;
+  border: 4px solid var(--pink-dark);
+}
+.cake-top {
+  position: absolute;
+  left: 12px;
+  bottom: 66px;
+  width: 94px;
+  height: 22px;
+  background: #f5b5c8;
+  border: 4px solid var(--pink-dark);
+}
+.cake-plate {
+  position: absolute;
+  left: 7px;
+  bottom: 14px;
+  width: 104px;
+  height: 8px;
+  background: var(--pink-dark);
+}
+.cake-candle {
+  position: absolute;
+  bottom: 88px;
+  width: 8px;
+  height: 23px;
+  background: var(--gold-light);
+  border: 2px solid var(--pink-dark);
+  z-index: 2;
+}
+.candle-1 { left: 35px; }
+.candle-2 { left: 55px; }
+.candle-3 { left: 75px; }
+.cake-candle::before {
+  content: "✦";
+  position: absolute;
+  left: -4px;
+  top: -17px;
+  color: #d97893;
+  font-size: 11px;
+}
